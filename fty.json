@@ -1,0 +1,58 @@
+[
+    {
+        "name": "energy disposable",
+        "disc": [
+            "Energy 8K Fruit Fusion disposable كوكتيل",
+            "/products/energy-8000-puffs-fruit-fusion-disposable"
+        ],
+        "price": "475.00 جنيه425.00 جنيه",
+        "link": "https://el-clan.com/products/energy-8000-puffs-fruit-fusion-disposable",
+        "fmg": "fmgphoto1709475110_1.jpg?v=1709475356&width=645",
+        "id": 1
+    },
+    {
+        "name": "Tugboat disposable",
+        "disc": [
+            "Tugboat Ultra 6K Gummy Bear disposable 🍭 كوكتيل فواكه",
+            "/products/tugboat-ultra-gummy-bear-disposable"
+        ],
+        "price": "475.00 جنيه400.00 جنيه",
+        "link": "https://el-clan.com/products/tugboat-ultra-gummy-bear-disposable",
+        "fmg": "fmgfyb-dysbosbl-mstord-tugboat-disposable-tugboat-ultra-6k-gummy-bear-disposable-koktyl-foakh-el-clancom-143070.jpg?v=1708332117&width=645",
+        "id": 2
+    },
+    {
+        "name": "Tugboat disposable",
+        "disc": [
+            "Tugboat Ultra 6K Banana Ice disposable موز ساقع",
+            "/products/tugboat-ultra-banana-ice-disposable"
+        ],
+        "price": "475.00 جنيه400.00 جنيه",
+        "link": "https://el-clan.com/products/tugboat-ultra-banana-ice-disposable",
+        "fmg": "fmgfyb-dysbosbl-mstord-tugboat-disposable-tugboat-ultra-6k-banana-ice-disposable-moz-sakaa-el-clancom-765695.jpg?v=1708331603&width=645",
+        "id": 3
+    },
+    {
+        "name": "Tugboat disposable",
+        "disc": [
+            "Tugboat Ultra 6K Cool Mint disposable نعناع ساقع",
+            "/products/tugboat-ultra-cool-mint-disposable"
+        ],
+        "price": "475.00 جنيه400.00 جنيه",
+        "link": "https://el-clan.com/products/tugboat-ultra-cool-mint-disposable",
+        "fmg": "fmgfyb-dysbosbl-mstord-tugboat-disposable-tugboat-ultra-6k-cool-mint-disposable-naanaaa-sakaa-el-clancom-917055.jpg?v=1708332006&width=645",
+        "id": 4
+    },
+    {
+        "name": "RandM Dazzle",
+        "disc": [
+            "Tornado 7K Strawberry Banana disposable فراوله موز",
+            "/products/r-and-m-tornado-7000-strawberry-banana-disposable"
+        ],
+        "price": "525.00 جنيه450.00 جنيه",
+        "link": "https://el-clan.com/products/r-and-m-tornado-7000-strawberry-banana-disposable",
+        "fmg": "fmgfyb-dysbosbl-mstord-randm-dazzle-tornado-7k-strawberry-banana-disposable-fraolh-moz-el-clancom-809721.jpg?v=1708331651&width=645",
+        "id": 5
+    }
+    
+]

@@ -1,0 +1,106 @@
+def scrape_page(self,url=initial_url):
+		# Find all links - adjust the selector to find the required links
+		links = self.soup.find_all(class_=self.next_idx, href=True)
+		flink = self.soup.find(class_=self.next_idx, href=True)
+		# Follow each link (you may want to add conditions here)	
+		for link in links:   
+			# Construct the full URL if necessary
+			next_page_url = link['href']
+			print(next_page_url)
+			if not next_page_url.startswith('http'):
+				next_page_url = requests.compat.urljoin(self.initial_url, next_page_url)
+			try:
+				x = link['href']
+				# x = next_page_url
+				print(x,"XX")			
+				if x is not None:
+					self.lsurls.append(next_page_url)
+					self.initial_url = x			
+					# print(f'Following link to: {next_page_url}')
+					# print(lsurls)
+					self.scrape_page(self.initial_url)  # Recursive call to scrape the next page						
+			except:
+				pass
+	def scrape_page2(self,url=initial_url):
+		response = requests.get(self.initial_url)
+		soup = BeautifulSoup(response.text, 'html.parser')
+		# Find all links - adjust the selector to find the required links
+		links = soup.find_all(class_='s-pagination-next', href=True)
+		flink = soup.find(class_='s-pagination-next', href=True)
+		print(links,"LINKS")
+		print(flink,"FL")
+		# Follow each link (you may want to add conditions here)
+		for link in links:   
+			#Construct the full URL if necessary
+			next_page_url = link['href']
+			print(next_page_url,"NEXt")
+			if not next_page_url.startswith('http'):
+				next_page_url = requests.compat.urljoin(self.initial_url, next_page_url)
+			try:
+				x = link['href']
+				x = next_page_url
+				print(x,"XX")
+				if x is not None:
+					self.lsurls.append(x)	
+					self.initial_url = x 
+					# print(f'Following link to: {next_page_url}')
+					# print(lsurls)
+					self.scrape_page2()  # Recursive call to scrape the next page						
+			except Exception as error:
+				print("ERORO\n",error)
+	# Start scraping from the initial URL
+	# scrape_page(initial_url)
+
+
+	def downproimg(self):
+		link = ""
+		tryfile = "fty.json"
+		# listimages = []
+		diclist = []
+		with open(tryfile , 'r') as file :
+			prolink = json.load(file)
+			incr = 1
+			for i in prolink:
+				dic = {}
+				link = i['link']
+				print(link,"NUM",incr)		
+				
+				# #Step 4: Fetch content from a dynamic website
+				# self.driver.get(link)
+				# js_content = self.driver.page_source
+
+				response = requests.get(link.strip())
+				print(response.status_code)
+				# soup = BeautifulSoup(js_content, 'html.parser')
+
+				#Step 5: Parse the HTML content using Beautiful Soup
+				soup = BeautifulSoup(response.text, 'html.parser')
+				# elements = soup.find_all(attrs={'class':'swiper-slide swiper-slide-active'})	
+	
+				newimg = soup.select('div.l4pr-container ul img')	
+				print(newimg)
+				# newimg = newimg.find_all('img')
+				# newimg = soup.find_all('div.swiper-custom-pagination img')	
+
+				# images = soup.find('div',class_='l4pr-container')
+				# images = images.select('img')
+				# images = soup.find('div.swiper-custom-pagination img')
+				# print(images)
+				# images = images.select('img')
+				# images = soup.select('img',class_='swiper-custom-pagination')
+				inc = 1
+				dic['link'] = link
+				dic['id'] = incr
+				incr +=1
+				listimages = []
+				# if not images :
+				# 	print("FOUND",images)
+				for img in newimg:
+					fname = "fname" + str(inc)
+					cimg = self.downimg(img,fname)
+					listimages.append(cimg.strip())
+					inc += 1
+				dic['images'] = listimages
+				diclist.append(dic)
+		with open('newimages.json','w') as new:
+			json.dump(diclist,new, indent=4,ensure_ascii=False)
